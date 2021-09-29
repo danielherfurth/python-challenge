@@ -14,10 +14,10 @@ def val_sort(list_to_sort):
     return list_to_sort
 
 
-fp = 'PyBank/budget_data.csv'
+FP = 'PyBank/budget_data.csv'
 
 # read the file
-with open(fp) as f:
+with open(FP) as f:
     # header = f.readlines()[:1]
     lines = f.readlines()
     header = lines.pop(0)
@@ -48,14 +48,14 @@ diff.sort()
 # The +1 moves the index along to the end month.
 max_month = months[months.index(ordered[-1][0]) + 1].replace('-', ' ')
 min_month = months[months.index(ordered[0][0]) + 1].replace('-', ' ')
-max_val = '{:,}'.format(diff[-1])
-min_val = '{:,}'.format(diff[0])
+MAX_VAL = '{:,}'.format(diff[-1])
+MIN_VAL = '{:,}'.format(diff[0])
 
 output_msg = f'The total amount of months is {total_months}.\n' \
              f'The total value is ${"{:,}".format(total_money)}\n' \
              f'The average change is ${"{:,}".format(avg_diff)} .\n' \
-             f'The month with the biggest gain is {max_month} (${max_val}).\n' \
-             f'The month with the biggest loss is {min_month} (${min_val}).'
+             f'The month with the biggest gain is {max_month} (${MAX_VAL}).\n' \
+             f'The month with the biggest loss is {min_month} (${MIN_VAL}).'
 
 with open('output_file.txt', 'w+') as f:
     f.write(output_msg)
