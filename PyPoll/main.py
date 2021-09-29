@@ -24,11 +24,9 @@ total_votes = sum(count_dict.values())
 # make the total easily human readable
 TOTAL_VOTE_STR = '{:,}'.format(sum(count_dict.values()))
 
-# switch keys and values and place in list so that
-# the list can be sorted to find the winner
-n = [[v, k] for k, v in count_dict.items()]
-n.sort(reverse=True)  # descending list
-
+# n = [[v, k] for k, v in count_dict.items()]
+# n.sort(reverse=True)  # descending list
+winner = collections.Counter(name_list).most_common(1)
 # make a string of 20 dashes similar to the picture in the readme
 DASHES = '-' * 20
 
@@ -42,7 +40,7 @@ for k, v in count_dict.items():
     msg = f'{k} received {"{:.3%}".format(v / total_votes)} ({"{:,}".format(v)})\n'
     output_msg = output_msg + msg
 
-output_msg = output_msg + f'{DASHES}\n' + f'Winner: {n[0][1]}\n' + DASHES
+output_msg = output_msg + f'{DASHES}\n' + f'Winner: {winner}\n' + DASHES
 
 print(output_msg)
 
@@ -50,8 +48,9 @@ with open('PyPoll/text_file.txt', 'w+') as text_file:
     text_file.write(output_msg)
 
 # end = dt.now()
-
+#
 # print(end - start)
+# 1.576352 s to run
 
 
 # the below code was commented out because of how slow it is.
@@ -65,17 +64,16 @@ with open('PyPoll/text_file.txt', 'w+') as text_file:
 #
 # splits = [i.split(',') for i in data]
 #
-#
 # names = [i[2][:-1] for i in splits]
 # name_list = []
 #
 # [name_list.append(i) for i in names if i not in name_list]
 # count_list = [[x, names.count(x)] for x in set(names)]
 # total = sum([name[1] for name in count_list])
-# percentages = [count[1]/total*100 for count in count_list]
+# percentages = [count[1] / total * 100 for count in count_list]
 #
 # output_list = list(zip(name_list, percentages))
-# DASHES = '-'*20
+# DASHES = '-' * 20
 #
 # with open('file.txt', 'w+') as f:
 #     total_str = f'Total Votes: {"{:,}".format(total)}'
@@ -103,4 +101,5 @@ with open('PyPoll/text_file.txt', 'w+') as text_file:
 #
 # end = dt.now()
 #
-# print(end-start)
+# print(end - start)
+# 4.079913 s to run
