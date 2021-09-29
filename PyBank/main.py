@@ -18,7 +18,6 @@ FP = 'PyBank/budget_data.csv'
 
 # read the file
 with open(FP) as f:
-    # header = f.readlines()[:1]
     lines = f.readlines()
     header = lines.pop(0)
 
