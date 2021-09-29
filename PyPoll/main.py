@@ -1,4 +1,4 @@
-fp = 'election_data.csv'
+fp = 'python-challenge/pypoll/election_data.csv'
 
 with open(fp) as f:
     data = f.readlines()[1:]
