@@ -1,4 +1,3 @@
-ist# %%
 from statistics import mean
 
 
@@ -14,7 +13,7 @@ def val_sort(list_to_sort):
     return list_to_sort
 
 
-fp = 'budget_data.csv'
+fp = 'PyBank/budget_data.csv'
 
 with open(fp) as f:
     lines = f.readlines()[1:]
