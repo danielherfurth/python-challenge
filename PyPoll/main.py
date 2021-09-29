@@ -1,8 +1,9 @@
-import csv, collections
+import csv
+import collections
+
 # from datetime import datetime as dt
-
-
 # start = dt.now()
+
 # file to read
 fp = 'PyPoll/election_data.csv'
 name_list = []
@@ -47,7 +48,7 @@ print(output_msg)
 with open('PyPoll/text_file.txt', 'w+') as text_file:
     text_file.write(output_msg)
 
-end = dt.now()
+# end = dt.now()
 
 # print(end - start)
 
