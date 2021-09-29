@@ -5,14 +5,15 @@ import collections
 # start = dt.now()
 
 # file to read
-fp = 'PyPoll/election_data.csv'
+FP = 'PyPoll/election_data.csv'
 name_list = []
-header = []
-with open(fp) as csv_file:
+
+with open(FP) as csv_file:
     reader = csv.reader(csv_file, delimiter=',')
     header = next(reader)  # read headers
+
     for row in reader:
-        name_list.append(row[1])  # only read the last name because it's faster and gets same results
+        name_list.append(row[1])  # only read last name because it's faster and gets same results
 
 # make a dictionary with a count of unique values
 count_dict = collections.Counter(name_list)
@@ -21,7 +22,7 @@ count_dict = collections.Counter(name_list)
 total_votes = sum(count_dict.values())
 
 # make the total easily human readable
-total_vote_str = '{:,}'.format(sum(count_dict.values()))
+TOTAL_VOTE_STR = '{:,}'.format(sum(count_dict.values()))
 
 # switch keys and values and place in list so that
 # the list can be sorted to find the winner
@@ -29,19 +30,19 @@ n = [[v, k] for k, v in count_dict.items()]
 n.sort(reverse=True)  # descending list
 
 # make a string of 20 dashes similar to the picture in the readme
-dashes = '-' * 20
+DASHES = '-' * 20
 
 # build the string that the script will output
 
-output_msg = f'{dashes}\n' \
-             f'Total Votes: {total_vote_str}\n' \
-             f'{dashes}\n'
+output_msg = f'{DASHES}\n' \
+             f'Total Votes: {TOTAL_VOTE_STR}\n' \
+             f'{DASHES}\n'
 
 for k, v in count_dict.items():
     msg = f'{k} received {"{:.3%}".format(v / total_votes)} ({"{:,}".format(v)})\n'
     output_msg = output_msg + msg
 
-output_msg = output_msg + f'{dashes}\n' + f'Winner: {n[0][1]}\n' + dashes
+output_msg = output_msg + f'{DASHES}\n' + f'Winner: {n[0][1]}\n' + DASHES
 
 print(output_msg)
 
@@ -57,9 +58,9 @@ with open('PyPoll/text_file.txt', 'w+') as text_file:
 # from datetime import datetime as dt
 #
 # start = dt.now()
-# fp = 'PyPoll/election_data.csv'
+# FP = 'PyPoll/election_data.csv'
 #
-# with open(fp) as f:
+# with open(FP) as f:
 #     data = f.readlines()[1:]
 #
 # splits = [i.split(',') for i in data]
@@ -74,31 +75,31 @@ with open('PyPoll/text_file.txt', 'w+') as text_file:
 # percentages = [count[1]/total*100 for count in count_list]
 #
 # output_list = list(zip(name_list, percentages))
-# dashes = '-'*20
+# DASHES = '-'*20
 #
 # with open('file.txt', 'w+') as f:
 #     total_str = f'Total Votes: {"{:,}".format(total)}'
 #
-#     f.write(dashes)
+#     f.write(DASHES)
 #     f.write(total_str)
-#     f.write(dashes)
+#     f.write(DASHES)
 #
-#     print(dashes)
+#     print(DASHES)
 #     print(total_str)
-#     print(dashes)
+#     print(DASHES)
 #
 #     for i in range(len(name_list)):
 #         msg = f'{name_list[i]}: {round(percentages[i], 2)}% ({"{:,}".format(count_list[i][1])})'
 #         print(msg)
 #         f.write(msg)
 #
-#     print(dashes)
+#     print(DASHES)
 #     print(f'Winner: {name_list[0]}')
-#     print(dashes)
+#     print(DASHES)
 #
-#     f.write(dashes)
+#     f.write(DASHES)
 #     f.write(f'Winner: {name_list[0]}')
-#     f.write(dashes)
+#     f.write(DASHES)
 #
 # end = dt.now()
 #
