@@ -35,10 +35,9 @@ zipped = list(zip(months, money))
 # subtracting index i + i from index i
 diff = [zipped[i + 1][1] - zipped[i][1] for i in range(len(zipped) - 1)]
 
-#%%
 # zip months and list together to id month with greatest changes
 ordered = [[a, b] for a, b in list(zip(months, diff))]
-# avg_diff = round(mean(diff), 2)
+avg_diff = round(mean(diff), 2)
 
 # wanted to make a function instead of just doing
 # reordered = [[b, a] for a, b in ordered]
@@ -51,7 +50,6 @@ max_month = months[months.index(ordered[-1][0]) + 1].replace('-', ' ')
 min_month = months[months.index(ordered[0][0]) + 1].replace('-', ' ')
 max_val = '{:,}'.format(diff[-1])
 min_val = '{:,}'.format(diff[0])
-
 
 output_msg = f'The total amount of months is {total_months}.\n' \
              f'The total value is ${"{:,}".format(total_money)}\n' \
