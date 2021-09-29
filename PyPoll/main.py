@@ -24,14 +24,12 @@ total_votes = sum(count_dict.values())
 # make the total easily human readable
 TOTAL_VOTE_STR = '{:,}'.format(sum(count_dict.values()))
 
-# n = [[v, k] for k, v in count_dict.items()]
-# n.sort(reverse=True)  # descending list
-winner = collections.Counter(name_list).most_common(1)
+# person with most votes
+winner = collections.Counter(name_list).most_common(1)[0][0]
 # make a string of 20 dashes similar to the picture in the readme
 DASHES = '-' * 20
 
 # build the string that the script will output
-
 output_msg = f'{DASHES}\n' \
              f'Total Votes: {TOTAL_VOTE_STR}\n' \
              f'{DASHES}\n'
