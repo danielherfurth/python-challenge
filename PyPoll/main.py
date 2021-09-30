@@ -31,12 +31,13 @@ winner = Counter(name_list).most_common(1)[0][0]
 DASHES = '-' * 20
 
 # build the string that the script will output
-output_msg = f'{DASHES}\n' \
+output_msg = 'ELECTION RESULTS\n' \
+             f'{DASHES}\n' \
              f'Total Votes: {TOTAL_VOTE_STR}\n' \
              f'{DASHES}\n'
 
 for k, v in count_dict.items():
-    msg = f'{k} received {"{:.3%}".format(v / total_votes)} ({"{:,}".format(v)})\n'
+    msg = f'{k} received {"{:.3%}".format(v / total_votes)} ({"{:,}".format(v)}).\n'
     output_msg = output_msg + msg
 
 output_msg = output_msg + f'{DASHES}\n' + f'Winner: {winner}\n' + DASHES
@@ -47,11 +48,11 @@ with open('PyPoll/text_file.txt', 'w+') as text_file:
     text_file.write(output_msg)
 
 # end = dt.now()
-#
+
 # print(end - start)
 # 1.576352 s to run
 
-
+# region
 # the below code was commented out because of how slow it is.
 # from datetime import datetime as dt
 #
@@ -102,3 +103,4 @@ with open('PyPoll/text_file.txt', 'w+') as text_file:
 #
 # print(end - start)
 # 4.079913 s to run
+# endregion
