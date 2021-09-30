@@ -1,5 +1,5 @@
 import csv
-import collections
+from collections import Counter
 
 # from datetime import datetime as dt
 # start = dt.now()
@@ -16,7 +16,7 @@ with open(FP) as csv_file:
         name_list.append(row[1])  # only read last name because it's faster and gets same results
 
 # make a dictionary with a count of unique values
-count_dict = collections.Counter(name_list)
+count_dict = Counter(name_list)
 
 # sum each candidate's votes'
 total_votes = sum(count_dict.values())
@@ -25,7 +25,8 @@ total_votes = sum(count_dict.values())
 TOTAL_VOTE_STR = '{:,}'.format(sum(count_dict.values()))
 
 # person with most votes
-winner = collections.Counter(name_list).most_common(1)[0][0]
+winner = Counter(name_list).most_common(1)[0][0]
+
 # make a string of 20 dashes similar to the picture in the readme
 DASHES = '-' * 20
 
