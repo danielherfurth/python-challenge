@@ -13,7 +13,7 @@ with open(FP) as csv_file:
     header = next(reader)  # read headers
 
     for row in reader:
-        name_list.append(row[1])  # only read last name because it's faster and gets same results
+        name_list.append(row[2])  # only read last name because it's faster and gets same results
 
 # make a dictionary with a count of unique values
 count_dict = Counter(name_list)
