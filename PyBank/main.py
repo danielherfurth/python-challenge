@@ -31,7 +31,7 @@ total_money = sum(money)
 total_months = len(months)
 zipped = list(zip(months, money))
 
-# subtracting index i + i from index i
+# subtracting index i + 1 from index i
 diff = [zipped[i + 1][1] - zipped[i][1] for i in range(len(zipped) - 1)]
 
 # zip months and list together to id month with greatest changes
