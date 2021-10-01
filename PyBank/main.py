@@ -51,7 +51,7 @@ MAX_VAL = '{:,}'.format(diff[-1])
 MIN_VAL = '{:,}'.format(diff[0])
 
 output_msg = f'The total amount of months is {total_months}.\n' \
-             f'The total value is ${"{:,}".format(total_money)}\n' \
+             f'The total value is ${"{:,}".format(total_money)}.\n' \
              f'The average change is ${"{:,}".format(avg_diff)} .\n' \
              f'The month with the biggest gain is {max_month} (${MAX_VAL}).\n' \
              f'The month with the biggest loss is {min_month} (${MIN_VAL}).'
