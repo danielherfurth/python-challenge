@@ -1,6 +1,6 @@
 # doing it without csv module for the fun of it
 from statistics import mean
-
+import os
 
 def val_sort(list_to_sort):
     """
@@ -56,7 +56,9 @@ output_msg = f'The total amount of months is {total_months}.\n' \
              f'The month with the biggest gain is {max_month} (${MAX_VAL}).\n' \
              f'The month with the biggest loss is {min_month} (${MIN_VAL}).'
 
-with open('pybank_output.txt', 'w+') as f:
+root = os.getcwd()
+
+with open(os.path.join(root, 'pybank_output.txt'), 'w+') as f:
     f.write(output_msg)
 
 print(
