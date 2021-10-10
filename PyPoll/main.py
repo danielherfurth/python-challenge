@@ -1,4 +1,5 @@
 import csv
+import os
 from collections import Counter
 
 # from datetime import datetime as dt
@@ -6,7 +7,7 @@ from collections import Counter
 # start = dt.now()
 
 # file to read
-FP = 'PyPoll/election_data.csv'
+FP = 'election_data.csv'
 name_list = []
 
 with open(FP) as csv_file:
@@ -45,7 +46,9 @@ output_msg = output_msg + f'{DASHES}\n' + f'Winner: {winner}\n' + DASHES
 
 print(output_msg)
 
-with open('PyPoll/text_file.txt', 'w+') as text_file:
+root = os.getcwd()
+
+with open(os.path.join(root, 'pypoll_output.txt'), 'w+') as text_file:
     text_file.write(output_msg)
 
 # end = dt.now()
