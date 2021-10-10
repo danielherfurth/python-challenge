@@ -14,7 +14,7 @@ def val_sort(list_to_sort):
     return list_to_sort
 
 
-FP = 'PyBank/budget_data.csv'
+FP = 'budget_data.csv'
 
 # read the file
 with open(FP) as f:
@@ -56,7 +56,7 @@ output_msg = f'The total amount of months is {total_months}.\n' \
              f'The month with the biggest gain is {max_month} (${MAX_VAL}).\n' \
              f'The month with the biggest loss is {min_month} (${MIN_VAL}).'
 
-with open('output_file.txt', 'w+') as f:
+with open('pybank_output.txt', 'w+') as f:
     f.write(output_msg)
 
 print(
